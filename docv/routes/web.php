@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Cv;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +16,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/preview/{id}', function ($id) {
+    return view('preview', Cv::find($id));
+});
+
+Route::get('/cvs', function () {
+    return view('cvs');
 });
